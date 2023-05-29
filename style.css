@@ -1,0 +1,292 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Roboto:wght@400;700&display=swap");
+:root {
+  /* Color Palette */
+  --primary-color: #111118;
+  --secondary-color: #f2f2f2;
+  --accent-color: #5b1079;
+  --accent-color-2: #b1b1b1;
+  --accent-color-3: #00ffff;
+  /* Fonts */
+  --primary-font: "Lato", sans-serif;
+  --secondary-font: "Roboto", sans-serif;
+}
+
+/* ----------------------------General Styling-------------------------------- */
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--primary-font);
+  background-color: var(--secondary-color);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--secondary-font);
+  font-weight: 400;
+}
+
+/* ------------------------SIDEBAR SETTINGS--------------------------- */
+.sidebar {
+  background-color: var(--primary-color);
+  position: fixed;
+  left: 0;
+  height: 100vh;
+  width: 20vw;
+  min-width: 250px;
+  box-shadow: 3px 0px 6px rgba(0, 0, 0, 0.3);
+}
+
+.sidebar .container {
+  width: 85%;
+  margin: 0 auto;
+}
+
+.sidebar-items {
+  max-height: 400px;
+  overflow-y: scroll;
+}
+
+.sidebar-items::-webkit-scrollbar {
+  display: none;
+}
+
+.sidebar-items.active::-webkit-scrollbar {
+  display: block;
+  width: 4px;
+}
+
+.sidebar-items.active::-webkit-scrollbar-thumb {
+  background-color: var(--secondary-color);
+  border-radius: 7px;
+}
+
+.sidebar-title-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--accent-color-2);
+  margin-bottom: 20px;
+  padding-block: 24px;
+}
+
+.sidebar-title {
+  color: var(--accent-color-3);
+  font-size: 30px;
+}
+
+.add-new-section {
+  background-color: transparent;
+  border: none;
+}
+
+.fa-plus {
+  font-size: 18px;
+  padding: 8px;
+  font-weight: lighter;
+  color: var(--secondary-color);
+  border: 1px solid var(--secondary-color);
+  cursor: pointer;
+}
+
+.sidebar-item-wrapper {
+  position: relative;
+}
+
+.sidebar-item {
+  color: var(--accent-color-2);
+  font-size: 16px;
+  padding-block: 20px;
+  padding-left: 30px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.1s;
+}
+
+.sidebar-item.active {
+  background-color: #353536;
+  padding-left: 36px;
+}
+
+.sidebar-item:hover {
+  background-color: #353536;
+  color: var(--accent-color-3);
+  padding-left: 36px;
+}
+
+.sidebar-item.active:hover {
+  color: #b1b1b1;
+}
+
+.fa-pencil {
+  position: absolute;
+  left: 5px;
+  top: 38%;
+  font-size: 15px;
+  color: var(--secondary-color);
+}
+
+.delete-section {
+  position: absolute;
+  right: 5px;
+  top: 39%;
+  background-color: transparent;
+  border: none;
+}
+
+.fa-trash {
+  color: var(--primary-color);
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.fa-trash:hover {
+  color: rgb(110, 0, 0);
+}
+
+/* -------------------- SECTION STYLING ------------------------ */
+section {
+  min-height: 100vh;
+  width: 100vw;
+  padding-left: 25vw;
+  padding-left: 300px;
+  float: right;
+  font-size: 24px;
+  display: none;
+}
+section.active {
+  display: block;
+}
+
+.note-title {
+  text-transform: uppercase;
+  text-align: center;
+  border-bottom: solid 1.5px var(--primary-color);
+  padding: 21px;
+}
+
+/* Modal styling */
+.section-name {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%);
+  background-color: var(--primary-color);
+  padding: 12px;
+  font-size: 16px;
+  color: var(--secondary-color);
+  border: none;
+  border-radius: 5px;
+  display: none;
+}
+.section-name.active {
+  display: block;
+}
+
+/* Added note styling */
+.added-note-title {
+  font-size: 30px;
+  color: var(--primary-color);
+}
+
+.note-container {
+  margin-bottom: 20px;
+}
+
+/* Section title */
+.section-title {
+  font-size: 32px;
+  padding: 14px;
+  margin-bottom: 20px;
+}
+
+/* New note form styling */
+.add-new-note-form {
+  display: none;
+  border-radius: 4px;
+  position: fixed;
+  flex-direction: column;
+  top: 50%;
+  left: 40%;
+  background-color: var(--primary-color);
+  width: 400px;
+  max-width: 95%;
+  min-height: 150px;
+  max-height: 400px;
+  transform: translateY(-50%);
+  overflow: hidden;
+}
+
+.add-new-note-form.active {
+  display: flex;
+}
+
+.new-note-text {
+  padding: 10px;
+  background-color: transparent;
+  color: var(--secondary-color);
+  outline: none;
+  font-size: 16px;
+  height: 100%;
+  max-width: 400px;
+  min-width: 400px;
+  min-height: 150px;
+  font-family: sans-serif;
+  border: none;
+}
+
+.new-note-text::placeholder {
+  font-size: 16px;
+}
+
+.add-new-note-button {
+  padding-block: 10px;
+  background-color: black;
+  border: none;
+  color: var(--secondary-color);
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.add-new-note-button:hover {
+  background-color: #080808;
+}
+
+/* Display note form button */
+.display-note-form-button {
+  position: fixed;
+  bottom: 5px;
+  right: 10px;
+  padding: 12px 20px;
+  font-size: 15px;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+.display-note-form-button:hover {
+  filter: brightness(110%);
+}
+
+/* Notes list */
+.notes-list li{
+  display: block;
+  margin-bottom: 24px;
+  padding-block: 10px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+
+
+textarea {
+  white-space: pre-wrap;
+}
